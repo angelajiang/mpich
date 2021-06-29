@@ -8,6 +8,8 @@
 /* This routine is called by MPID_Finalize to finalize the channel. */
 int MPIDI_CH3_Finalize(void)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3_Finalize\n");
+
     int mpi_errno = MPI_SUCCESS;
     MPIR_FUNC_VERBOSE_STATE_DECL(MPID_STATE_MPID_CH3_FINALIZE);
 

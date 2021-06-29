@@ -31,6 +31,8 @@ static void update_request(MPIR_Request * sreq, struct iovec * iov, int iov_coun
 
 int MPIDI_CH3_iSendv(MPIDI_VC_t * vc, MPIR_Request * sreq, struct iovec * iov, int n_iov)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3_iSendv\n");
+
     int mpi_errno = MPI_SUCCESS;
     MPIDI_CH3I_VC *vcch = &vc->ch;
     int (*reqFn) (MPIDI_VC_t *, MPIR_Request *, int *);

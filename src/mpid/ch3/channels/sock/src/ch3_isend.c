@@ -20,6 +20,8 @@ static void update_request(MPIR_Request * sreq, void *hdr, intptr_t hdr_sz, size
 
 int MPIDI_CH3_iSend(MPIDI_VC_t * vc, MPIR_Request * sreq, void *hdr, intptr_t hdr_sz)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3_iSend\n");
+
     int mpi_errno = MPI_SUCCESS;
     int (*reqFn) (MPIDI_VC_t *, MPIR_Request *, int *);
     MPIDI_CH3I_VC *vcch = &vc->ch;

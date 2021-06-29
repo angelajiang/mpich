@@ -1208,6 +1208,9 @@ int MPIDI_CH3I_Sock_init(void)
     MPIDI_CH3I_Socki_initialized++;
 
     MPIR_FUNC_VERBOSE_EXIT(MPID_STATE_MPIDI_CH3I_SOCK_INIT);
+
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_init\n");
+
     return MPI_SUCCESS;
 }
 
@@ -1226,6 +1229,9 @@ int MPIDI_CH3I_Sock_finalize(void)
     if (MPIDI_CH3I_Socki_initialized == 0) {
         MPIDI_CH3I_Socki_free_eventq_mem();
     }
+
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_finalize\n");
+
 #ifdef USE_SOCK_VERIFY
   fn_exit:
 #endif
@@ -1239,6 +1245,8 @@ int MPIDI_CH3I_Sock_finalize(void)
 
 int MPIDI_CH3I_Sock_create_set(struct MPIDI_CH3I_Sock_set **sock_setp)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_create_set\n");
+
     struct MPIDI_CH3I_Sock_set *sock_set = NULL;
     int mpi_errno = MPI_SUCCESS;
     char strerrbuf[MPIR_STRERROR_BUF_SIZE];
@@ -1403,6 +1411,8 @@ int MPIDI_CH3I_Sock_create_set(struct MPIDI_CH3I_Sock_set **sock_setp)
 int MPIDI_CH3I_Sock_close_open_sockets(struct MPIDI_CH3I_Sock_set *sock_set, void **user_ptr)
 {
 
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_close_open_sockets\n");
+
     int i;
     int mpi_errno = MPI_SUCCESS;
     struct pollinfo *pollinfos = NULL;
@@ -1432,6 +1442,8 @@ int MPIDI_CH3I_Sock_close_open_sockets(struct MPIDI_CH3I_Sock_set *sock_set, voi
 
 int MPIDI_CH3I_Sock_destroy_set(struct MPIDI_CH3I_Sock_set *sock_set)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_destroy_set\n");
+
     int elem;
     struct MPIDI_CH3I_Sock_event event;
     int mpi_errno = MPI_SUCCESS;
@@ -1737,6 +1749,7 @@ int MPIDI_CH3I_Sock_post_connect(struct MPIDI_CH3I_Sock_set *sock_set, void *use
 int MPIDI_CH3I_Sock_listen(struct MPIDI_CH3I_Sock_set *sock_set, void *user_ptr,
                            int *port, struct MPIDI_CH3I_Sock **sockp)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_listen\n");
     struct MPIDI_CH3I_Sock *sock;
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
@@ -1910,6 +1923,7 @@ int MPIDI_CH3I_Sock_listen(struct MPIDI_CH3I_Sock_set *sock_set, void *user_ptr,
 int MPIDI_CH3I_Sock_post_read(struct MPIDI_CH3I_Sock *sock, void *buf, size_t minlen, size_t maxlen,
                               MPIDI_CH3I_Sock_progress_update_func_t fn)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_post_read\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
     int mpi_errno = MPI_SUCCESS;
@@ -1958,6 +1972,7 @@ int MPIDI_CH3I_Sock_post_read(struct MPIDI_CH3I_Sock *sock, void *buf, size_t mi
 int MPIDI_CH3I_Sock_post_readv(struct MPIDI_CH3I_Sock *sock, struct iovec * iov, int iov_n,
                                MPIDI_CH3I_Sock_progress_update_func_t fn)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_post_readv\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
     int mpi_errno = MPI_SUCCESS;
@@ -2006,6 +2021,7 @@ int MPIDI_CH3I_Sock_post_readv(struct MPIDI_CH3I_Sock *sock, struct iovec * iov,
 int MPIDI_CH3I_Sock_post_write(struct MPIDI_CH3I_Sock *sock, void *buf, size_t minlen,
                                size_t maxlen, MPIDI_CH3I_Sock_progress_update_func_t fn)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_post_write\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
     int mpi_errno = MPI_SUCCESS;
@@ -2054,6 +2070,7 @@ int MPIDI_CH3I_Sock_post_write(struct MPIDI_CH3I_Sock *sock, void *buf, size_t m
 int MPIDI_CH3I_Sock_post_writev(struct MPIDI_CH3I_Sock *sock, struct iovec * iov, int iov_n,
                                 MPIDI_CH3I_Sock_progress_update_func_t fn)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_post_writev\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
     int mpi_errno = MPI_SUCCESS;
@@ -2101,6 +2118,7 @@ int MPIDI_CH3I_Sock_post_writev(struct MPIDI_CH3I_Sock *sock, struct iovec * iov
 
 int MPIDI_CH3I_Sock_post_close(struct MPIDI_CH3I_Sock *sock)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_post_close\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
 
@@ -2406,6 +2424,7 @@ int MPIDI_CH3I_Sock_accept(struct MPIDI_CH3I_Sock *listener,
 
 int MPIDI_CH3I_Sock_read(MPIDI_CH3I_Sock_t sock, void *buf, size_t len, size_t * num_read)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Sock_read\n");
     struct pollfd *pollfd;
     struct pollinfo *pollinfo;
     size_t nb;

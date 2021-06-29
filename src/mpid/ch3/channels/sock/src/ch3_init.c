@@ -18,6 +18,7 @@ char MPIDI_CH3_ABIVersion[] = "1.1";
 
 int MPIDI_CH3_Init(int has_parent, MPIDI_PG_t * pg_p, int pg_rank)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3I_Init\n");
     int mpi_errno = MPI_SUCCESS;
     char *publish_bc_orig = NULL;
     char *bc_val = NULL;

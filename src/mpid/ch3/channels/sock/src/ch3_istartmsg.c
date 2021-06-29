@@ -7,6 +7,8 @@
 
 static MPIR_Request *create_request(void *hdr, intptr_t hdr_sz, size_t nb)
 {
+    MPL_msg_printf("ANGELA create_request\n");
+
     MPIR_Request *sreq;
     MPIR_FUNC_VERBOSE_STATE_DECL(MPID_STATE_CREATE_REQUEST);
 
@@ -40,6 +42,8 @@ static MPIR_Request *create_request(void *hdr, intptr_t hdr_sz, size_t nb)
  */
 int MPIDI_CH3_iStartMsg(MPIDI_VC_t * vc, void *hdr, intptr_t hdr_sz, MPIR_Request ** sreq_ptr)
 {
+    MPL_msg_printf("ANGELA MPIDI_CH3_iStartMsg\n");
+
     MPIR_Request *sreq = NULL;
     MPIDI_CH3I_VC *vcch = &vc->ch;
     int mpi_errno = MPI_SUCCESS;
